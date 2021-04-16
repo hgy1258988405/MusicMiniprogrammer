@@ -1,0 +1,6 @@
+<!--play/play_mv.wxml-->
+<text>play/play_mv.wxml</text>
+<view class="body">
+  <image src="/images/disk.png" class="background_img"></image>
+ 
+</view>

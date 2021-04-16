@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "more/more_newsong/more_newsong",
+    "more/more_mv/more_mv",
+    "custom-tab-bar/index",
+    "pages/me/me",
+    "pages/search/search",
+    "pages/play_mv/play_mv",
+    "pages/play/play",
+    "more/more_songsheet/more_songsheet",
+    "more/more_songsheet/moremore_songsheet",
+    "more/toplist/toplist",
+    "more/toplist/moretoplist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#44CEFE",
+    "navigationBarTitleText": "华水音乐台",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "乐库",
+        "iconPath": "images/music.png",
+        "selectedIconPath": "images/selected-music.png"
+      },
+      {
+        "pagePath": "pages/play/play",
+        "text": "",
+        "iconPath": "images/playing.png",
+        "selectedIconPath": "images/selected-playing.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/selected-me.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

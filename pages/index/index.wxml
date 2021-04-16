@@ -1,0 +1,246 @@
+<!--index.wxml-->
+<!-- 首页头部 -->
+<view><image src="/images/background_img.jpg" class="background_img"></image></view>
+
+<view class="index_header">
+  <!-- 搜索框 -->
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" bindtap="go_search">
+        <icon class="weui-icon-search" type="search" size="16" color='#44CEFE'></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+      取消
+    </view>
+  </view>
+</view>
+<!-- 推荐头部 -->
+<view class='swiper_header'>
+  <view class='swiper_header_title_1'>歌曲推荐</view>
+  <view class='swiper_header_title_2'>MV</view>
+  <!-- 引入选中样式 -->
+  <view class="weui-navbar-slider" style="transform:translateX({{slideOffset}}px);"></view>
+</view>
+<!-- 歌曲推荐和MV -->
+<swiper class='Allswiper' bindchange="changeline" current="{{activeIndex}}">
+  <!-- 歌曲推荐swiper页面 -->
+  <swiper-item class="comment">
+    <scroll-view scroll-y='true'>
+      <!-- 最新音乐 -->
+      <view class='songsheet_items_allbox newsong_allbox'>
+        <text class='songsheet_container_title' bindtap="go_newsong">最新音乐</text>
+        <!-- 更多 -->
+        <view class='title_leader_box' bindtap="go_newsong">
+          <text>更多</text>
+          <image src='/images/dayuhao.png' class='title_leader'></image>
+        </view>
+        <!-- 每首歌的内容 -->
+        <view class='songsheet_items_box'>
+          <view wx:for="{{newsong_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}"
+            bindtap='handlePlayAudio'>
+            <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
+            <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+            <text class='newsong_artists'>{{item.song.artists[0].name}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 热门歌单-->
+      <view class='songsheet_items_allbox'>
+        <text class='songsheet_container_title' bindtap="go_songsheet">热门歌单</text>
+        <view class='title_leader_box' bindtap="go_songsheet">
+          <text>更多</text>
+          <image src='/images/dayuhao.png' class='title_leader'></image>
+        </view>
+        <view class='songsheet_items_box'>
+          <view wx:for="{{songsheet_index}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}"
+            bindtap='handleSheet'>
+            <image src='{{item.coverImgUrl}}' class="songsheet_container_image"></image>
+            <text class='songsheet_container_text'>{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 巅峰榜 -->
+      <view class='songsheet_items_allbox'>
+        <text class='songsheet_container_title' bindtap="go_moretoplist">巅峰榜</text>
+        <view class='title_leader_box' bindtap="go_moretoplist">
+          <text>更多</text>
+          <image src='/images/dayuhao.png' class='title_leader'></image>
+        </view>
+        <!-- 所有榜单 -->
+        <!-- 第一个榜单小盒 -->
+        <view class="toplist_items_box" go_toplist0 >
+          <!-- 榜单图片图片 -->
+          <view wx:key="" class='songsheet_item_box' bindtap='go_toplist0'>
+            <image src='{{toplist0.coverImgUrl}}' class="songsheet_container_image"></image>
+          </view>
+          <!-- 榜单名后的歌曲名盒子 -->
+          <view class='toplsit_song_box' bindtap='go_toplist0'>
+            <!-- 数字和 每首歌曲的名和作者 盒子 -->
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>1</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist0song[0].name}}</text>
+                <text class="topsongart">-{{toplist0song[0].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>2</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist0song[1].name}}</text>
+                <text class="topsongart">-{{toplist0song[1].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>3</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist0song[2].name}}</text>
+                <text class="topsongart">-{{toplist0song[2].ar[0].name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 第二个榜单小盒 -->
+        <view class="toplist_items_box" bindtap='go_toplist1'>
+          <!-- 榜单图片图片 -->
+          <view wx:key="" class='songsheet_item_box' bindtap='go_toplist1'>
+            <image src='{{toplist1.coverImgUrl}}' class="songsheet_container_image"></image>
+          </view>
+
+          <!-- 榜单名后的歌曲名盒子 -->
+          <view class='toplsit_song_box' bindtap='go_toplist1'>
+            <!-- 数字和 每首歌曲的名和作者 盒子 -->
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>1</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist1song[0].name}}</text>
+                <text class="topsongart">-{{toplist1song[0].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>2</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist1song[1].name}}</text>
+                <text class="topsongart">-{{toplist1song[1].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>3</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist1song[2].name}}</text>
+                <text class="topsongart">-{{toplist1song[2].ar[0].name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 第三个榜单小盒 -->
+        <view class="toplist_items_box" bindtap='go_toplist2'>
+          <!-- 榜单图片图片 -->
+          <view wx:key="" class='songsheet_item_box' bindtap='go_toplist2'>
+            <image src='{{toplist2.coverImgUrl}}' class="songsheet_container_image"></image>
+          </view>
+          <!-- 榜单名后的歌曲名盒子 -->
+          <view class='toplsit_song_box' bindtap='go_toplist2'>
+            <!-- 数字和 每首歌曲的名和作者 盒子 -->
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>1</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist2song[0].name}}</text>
+                <text class="topsongart">-{{toplist2song[0].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>2</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist2song[1].name}}</text>
+                <text class="topsongart">-{{toplist2song[1].ar[0].name}}</text>
+              </view>
+            </view>
+            <view class="topsong_box">
+              <!-- 数字盒子 -->
+              <text class='song_index'>3</text>
+              <view class="topsong">
+                <text class="topsongname">{{toplist2song[2].name}}</text>
+                <text class="topsongart">-{{toplist2song[2].ar[0].name}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+          <!-- 第四个榜单小盒 -->
+          <view class="toplist_items_box" bindtap='go_toplist3'>
+            <!-- 榜单图片图片 -->
+            <view wx:key="" class='songsheet_item_box' bindtap='go_toplist3'>
+              <image src='{{toplist3.coverImgUrl}}' class="songsheet_container_image"></image>
+            </view>
+            <!-- 榜单名后的歌曲名盒子 -->
+            <view class='toplsit_song_box' bindtap='go_toplist3'>
+              <!-- 数字和 每首歌曲的名和作者 盒子 -->
+              <view class="topsong_box">
+                <!-- 数字盒子 -->
+                <text class='song_index'>1</text>
+                <view class="topsong">
+                  <text class="topsongname">{{toplist3song[0].name}}</text>
+                  <text class="topsongart">-{{toplist3song[0].ar[0].name}}</text>
+                </view>
+              </view>
+              <view class="topsong_box">
+                <!-- 数字盒子 -->
+                <text class='song_index'>2</text>
+                <view class="topsong">
+                  <text class="topsongname">{{toplist3song[1].name}}</text>
+                  <text class="topsongart">-{{toplist3song[1].ar[0].name}}</text>
+                </view>
+              </view>
+              <view class="topsong_box">
+                <!-- 数字盒子 -->
+                <text class='song_index'>3</text>
+                <view class="topsong">
+                  <text class="topsongname">{{toplist3song[2].name}}</text>
+                  <text class="topsongart">-{{toplist3song[2].ar[0].name}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- //***// -->
+        <view><text> \n \n \n \n \n</text></view>
+
+    </scroll-view>
+  </swiper-item>
+
+  <swiper-item>
+    <scroll-view>
+      <view class='songsheet_items_allbox newsong_allbox'>
+        <text class='songsheet_container_title' bindtap="go_mv">推荐MV</text>
+        <view class='title_leader_box' bindtap="go_mv">
+          <image src='/images/dayuhao.png' class='title_leader'></image>
+        </view>
+        <view class='songsheet_items_box'>
+          <view wx:for="{{recommend_MV}}" wx:key="" class='songsheet_item_box recommend_mv' data-id="{{item.id}}"
+            bindtap='handlePlayMv'>
+            <image src='{{item.picUrl}}' class="songsheet_container_image"></image>
+            <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
+            <text class='newsong_artists'>{{item.artistName}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

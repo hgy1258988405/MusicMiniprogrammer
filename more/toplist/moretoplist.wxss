@@ -1,0 +1,29 @@
+/* more/toplist/moretoplist.wxss */
+/* @import "../../pages/index/index"; */
+.songsheet_items_allbox{
+  margin-top: 25rpx;
+}
+.songsheet_container_title{
+  font-size: 17px;
+  font-weight: bold;
+  padding-left: 10rpx;
+}
+.songsheet_item_box{
+  width: 50%;
+  padding-top: 10rpx;
+  display: inline-block;
+  box-sizing: border-box;
+}
+/* 每首歌封面的样式 */
+.songsheet_container_image{
+  width: 95%;
+  height: 335rpx;
+  /* padding: 10rpx; */
+  margin: 5rpx;
+  border-radius: 10rpx;
+}
+.songsheet_container_text{
+  overflow: hidden;
+  font-size: 13px;
+  padding-left: 14rpx;
+}

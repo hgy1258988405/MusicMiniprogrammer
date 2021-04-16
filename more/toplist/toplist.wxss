@@ -1,0 +1,47 @@
+page {
+  background-color: #FBFCFE;
+  width:100%;
+  height: 100%;
+}
+/* 每个排名的盒子样式 */
+.song_box{
+  width: 100%;
+  height: 120rpx;
+  border-bottom: 1px solid #deeef0;
+  display: flex;
+  flex-direction: row; 
+}
+/* 数字样式 */
+.song_index_box{
+  height: 120rpx;
+  width: 80rpx;
+  font-size: 44rpx;
+  line-height: 120rpx;
+  text-align: center;
+}
+/* 歌名作者样式 */
+.songsheet_item{
+  width: 95%;
+  height: 120rpx;
+  /* background-color: red; */
+  
+  display: flex;
+  flex-direction: column; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 20rpx;
+}
+.song_name {
+  font-size: 32rpx;
+  height: 50rpx;
+  overflow: hidden;
+  margin: 5rpx 0;
+  /* background-color: gray; */
+}
+.song_artists{
+  font-size: 32rpx;
+  height: 50rpx;
+  overflow: hidden;
+  /* background-color: white; */
+}
+
