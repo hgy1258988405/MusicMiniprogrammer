@@ -1,3 +1,4 @@
+/* pages/singer/singer.wxss */
 page {
   background-color: #FBFCFE;
   width:100%;
@@ -15,8 +16,6 @@ page {
   font-size: 17px;
   font-weight: bold;
   padding-left: 10rpx;
-  height: 25px;
-  overflow: hidden;
 }
 /* 数字样式 */
 .song_index_box{

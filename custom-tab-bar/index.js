@@ -16,7 +16,7 @@ Component({
       pagePath: "/pages/play/play",
       iconPath: "/images/playing.png",
       selectedIconPath: "/images/selected-playing.png",
-      text: ""
+      // text: "播放页面"
     }, {
       pagePath: "/pages/me/me",
       iconPath: "/images/me.png",

@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/logs/logs",
     "more/more_newsong/more_newsong",
-    "more/more_mv/more_mv",
     "custom-tab-bar/index",
     "pages/me/me",
     "pages/search/search",
@@ -12,13 +11,18 @@
     "more/more_songsheet/more_songsheet",
     "more/more_songsheet/moremore_songsheet",
     "more/toplist/toplist",
-    "more/toplist/moretoplist"
+    "more/toplist/moretoplist",
+    "more/gobacksongsheet/gabacksongsheet",
+    "pages/love/love",
+    "pages/singer/singer",
+    "more/more_singer/more_singer"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#44CEFE",
     "navigationBarTitleText": "华水音乐台",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "custom": true,

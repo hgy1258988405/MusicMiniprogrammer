@@ -1,0 +1,14 @@
+<!--more/more_songsheet/moremore_songsheet.wxml-->
+<view class='moremore_songsheet'>
+  <text class='songsheet_title '>我喜欢的音乐 </text>
+  <view  wx:for="{{songList}}" wx:key="" class="song_box" data-id="{{item.id}}" >
+    <view class='song_index_box'>
+      <text class='song_index'bindtap='handlePlayAudio'>{{index + 1}}</text>
+    </view>
+    <view class="songsheet_item">
+      <text class='song_name'bindtap='handlePlayAudio'data-id="{{item.id}}">{{item.name}}</text>
+      <text class='song_artists'bindtap='handlePlayAudio'data-id="{{item.id}}">{{item.ar[0].name}}{{item.song.artists[0].name}}</text>
+      <image src="/images/delete.png" class="delete_icon" bindtap="delete_lovesong" data-id="{{item.id}}"></image>
+    </view>
+  </view>
+</view>

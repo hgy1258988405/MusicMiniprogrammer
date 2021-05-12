@@ -1,13 +1,12 @@
 <!--more/more_songsheet/moremore_songsheet.wxml-->
 <view class='moremore_songsheet'>
-  <text class='songsheet_title '>{{songsheettitle}}</text>
   <view  wx:for="{{songList}}" wx:key="" class="song_box" data-id="{{item.id}}" bindtap='handlePlayAudio'>
     <view class='song_index_box'>
       <text class='song_index'>{{index + 1}}</text>
     </view>
     <view class="songsheet_item">
       <text class='song_name'>{{item.name}}</text>
-      <text class='song_artists'>{{item.ar[0].name}}</text>
+      <text class='song_artists'>{{item.ar[0].name}}{{item.song.artists[0].name}}</text>
     </view>
   </view>
 </view>

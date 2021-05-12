@@ -14,16 +14,22 @@ page, .body {
   z-index: -1;
 }  
 
-/* .back_box{
-  position:absolute;
-  width:8%;
-  height:24px;
-  padding-top:10rpx;
-} */
+/* 顶部歌名作者样式 */
 .sing-brief {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+}
+.goback_box{
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  z-index: 999;
+}
+.goback_icon{
+  width: 34px;
+  height: 34px;
 }
 .sing-name {
   height: 60rpx;
@@ -57,7 +63,16 @@ page, .body {
   align-items: center;
   box-sizing: border-box;
 }
-
+/* 喜欢图标 */
+.love_icon_box{
+  position: absolute;
+  right: 50rpx;
+  top: 10rpx;
+}
+.love_icon{
+  width: 100rpx;
+  height: 100rpx;
+}
 .coverImg {
   width: 400rpx;
   height: 400rpx;
@@ -77,6 +92,7 @@ page, .body {
 .hide{
   display: none;
 }
+/* 旋转动画 */
 @keyframes rotate {
   0%{
     transform: rotate(0);
@@ -85,19 +101,8 @@ page, .body {
     transform: rotate(360deg);
   }
 }
-.songLyric{
-  color: #000000;
-  font-size: 14px;
-}
-/* .circle{
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  width:400rpx;
-  height:400rpx;
-  /* position:absolute; */
-  /* animation: moveCircle 2.5s linear infinite ; */
-  /* animation-play-state: paused; */
-/* } */ 
+
+
 /* 波纹样式 */
 .moveCircle{   
   border-radius: 50%;
@@ -110,13 +115,9 @@ page, .body {
   /* position: relative; */
   animation: moveCircle 2.5s linear infinite ;
   animation-play-state: paused;
+ 
 }
-/* .circle{
-  border-radius: 50%;
-  border: 1px solid red;
-  animation: moveCircle 5s  2s linear infinite ;/* 因为动画宽高会变化，所以会覆盖*/
-  /* animation-play-state: paused; */
-/* } */ 
+/* 波纹动画 */
 @keyframes moveCircle {
   0%{
     transform: scale(1);
@@ -170,4 +171,5 @@ page, .body {
   animation: rotate 15s linear infinite ;
   animation-fill-mode: forwards;
 }
+
 /* 741rpx */

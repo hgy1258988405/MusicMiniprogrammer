@@ -1,5 +1,6 @@
 <!--more/toplist/toplist.wxml-->
 <view class='moremore_songsheet'>
+  <text class='songsheet_title '>{{songsheettitle}}</text>
   <view  wx:for="{{songList}}" wx:key="" class="song_box" data-id="{{item.id}}" bindtap='handlePlayAudio'>
     <view class='song_index_box'>
       <text class='song_index'>{{index + 1}}</text>

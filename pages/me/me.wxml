@@ -1,2 +1,23 @@
 <!--pages/me/me.wxml-->
-<view><image src="/images/background_img.jpg" class="background_img"></image></view>
+<view>
+  <image src="/images/background_img.jpg" class="background_img"></image>
+</view>
+<view class="login" bindtap="login" hidden="{{islogin}}">
+  <text class="login_text">登 录</text>
+</view>
+<view class="userinfo" hidden="{{!islogin}}">
+  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userinfo.avatarUrl}}" mode="cover"></image>
+  <text class="userinfo-nickname">{{userinfo.nickName}}</text>
+</view>
+<!-- **** -->
+<view  class="mysongsheet" hidden="{{!islogin}}" > 
+  <view class="mylove_box" bindtap="go_mylove">
+    <text class="mylove_text">我喜欢的音乐</text>
+    <text class="mylove_manage">管理+</text>
+  </view>
+  <view wx:for="{{lovesongsheet}}" data-id="{{item.id}}" class="mylove_song" >
+    <image src="/images/loveing.png" class="loveing_icon" hidden=""data-id="{{item.id}}"></image>
+    <text class="mylove_songname" bindtap="handlePlayAudio"data-id="{{item.id}}">{{item.name}}</text>
+    <text class="mylove_songart" bindtap="handlePlayAudio"data-id="{{item.id}}">-{{item.ar[0].name}}</text>
+  </view>
+</view>

@@ -4,9 +4,11 @@
       <text class='songsheet_container_title '>最新音乐 </text>
       <view class='songsheet_items_box'>
         <view wx:for="{{newsong}}" wx:key="" class='songsheet_item_box' data-id="{{item.id}}" bindtap='handlePlayAudio'>
-          <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image>
+          <!-- <image src='{{item.song.album.picUrl}}' class="songsheet_container_image"></image> -->
+          <image src='{{item.album.blurPicUrl}}' class="songsheet_container_image"></image>
           <text class='songsheet_container_text newsong_songname'>{{item.name}}</text>
-          <text class='newsong_artists'>{{item.song.artists[0].name}}</text>
+          <!-- <text class='newsong_artists'>{{item.song.artists[0].name}}</text> -->
+          <text class='newsong_artists'>{{item.artists[0].name}}</text>
         </view>
       </view>
       
